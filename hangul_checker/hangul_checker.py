@@ -1,7 +1,5 @@
 import requests
 
-from bs4 import BeautifulSoup
-
 
 class KoreanSpellChecker:
     spell_checker_url = \
@@ -22,9 +20,7 @@ class KoreanSpellChecker:
         response.raise_for_status()
 
         response_in_html = response.text
-        response_in_parsed_html = \
-            BeautifulSoup(response_in_html, 'html.parser')
-        return response_in_parsed_html.find(self.spell_checked_tag).get_text()
+        return response_in_html.split('"')[-2]
 
     #
     # Private Methods
@@ -35,7 +31,7 @@ class KoreanSpellChecker:
 
 
 if __name__ == '__main__':
-    sentence = "부담갖지말고먹어"
+    sentence = "부담갖지말고 드세요!"
     ksc = KoreanSpellChecker()
     res = ksc.check_spelling(sentence)
     print(res)
