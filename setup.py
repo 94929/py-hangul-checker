@@ -19,7 +19,7 @@ def get_requirements():
 
 setup(
     name="py-hangul-checker",
-    version="0.1.2",
+    version="0.1.3",
     author="Jinsung Ha",
     author_email="jsung5381@naver.com",
     description="Python implementation of Hanhul (Korean Language) Spell Checker",
