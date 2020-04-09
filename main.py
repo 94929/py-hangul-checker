@@ -4,19 +4,33 @@ from bs4 import BeautifulSoup
 
 
 class KoreanSpellChecker:
-    spell_checker_url = 'https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy?_callback=jQuery112407704652679626749_1586403615462&q={}&where=nexearch&color_blindness=0&_=1586403615463'
+    spell_checker_url = \
+        'https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy'
+    spell_checked_tag = 'em'
 
-    def __check_sentence_len(self, sentence):
-        if len(sentence) > 500:
-            raise Exception("Input sentence length exceeds maximum limit")
-
+    #
+    # Public Methods
+    #
     def check_spelling(self, sentence):
         self.__check_sentence_len(sentence)
 
-        dest_path = self.spell_checker_url.format(sentence)
-        html = requests.get(dest_path).text
-        soup = BeautifulSoup(html, 'html.parser')
-        return soup.find('em').get_text()
+        params = {
+            'q': sentence,
+            'where': 'nexearch',
+            'color_blindness': '0',
+        }
+        response = requests.get(self.spell_checker_url, params=params)
+        response_in_html = response.text
+        response_in_parsed_html = \
+            BeautifulSoup(response_in_html, 'html.parser')
+        return response_in_parsed_html.find(self.spell_checked_tag).get_text()
+
+    #
+    # Private Methods
+    #
+    def __check_sentence_len(self, sentence):
+        if len(sentence) > 500:
+            raise Exception('Input sentence length exceeds maximum limit')
 
 
 if __name__ == '__main__':
