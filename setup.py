@@ -12,7 +12,7 @@ def get_readme():
 
 setup(
     name="py-hangul-checker",
-    version="0.1.0",
+    version="0.1.1",
     author="Jinsung Ha",
     author_email="jsung5381@naver.com",
     description="Python implementation of Hanhul (Korean Language) Spell Checker",
