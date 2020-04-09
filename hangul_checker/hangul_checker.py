@@ -16,7 +16,6 @@ class KoreanSpellChecker:
 
         params = {
             'q': sentence,
-            'where': 'nexearch',
             'color_blindness': '0',
         }
         response = requests.get(self.spell_checker_url, params=params)
