@@ -7,7 +7,14 @@ def get_readme():
     here = path.abspath(path.dirname(__file__))
     with open(path.join(here, 'README.md'), encoding='utf-8') as readme_file:
         readme = readme_file.read()
-    return readme
+        return readme
+
+def get_requirements():
+    here = path.abspath(path.dirname(__file__))
+    with open(path.join(here, 'requirements.txt'), encoding='utf-8') as \
+        requirements_file:
+        requirements = requirements_file.read().splitlines()
+        return requirements
 
 
 setup(
@@ -19,10 +26,7 @@ setup(
     long_description=get_readme(),
     long_description_content_type="text/markdown",
     license="MIT",
-    install_requires=[
-        "requests",
-        "beautifulsoup4",
-    ],
+    install_requires=get_requirements(),
     url="https://github.com/jha929/py-hangul-checker",
     packages=find_packages(),
     classifiers=[
