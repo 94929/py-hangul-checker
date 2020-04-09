@@ -20,6 +20,8 @@ class KoreanSpellChecker:
             'color_blindness': '0',
         }
         response = requests.get(self.spell_checker_url, params=params)
+        response.raise_for_status()
+
         response_in_html = response.text
         response_in_parsed_html = \
             BeautifulSoup(response_in_html, 'html.parser')
