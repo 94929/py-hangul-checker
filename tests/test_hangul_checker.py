@@ -1,7 +1,5 @@
 import unittest
 
-from unittest import mock
-
 from hangul_checker.hangul_checker import KoreanSpellChecker
 
 
