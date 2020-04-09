@@ -1,12 +1,16 @@
 # py-hangul-checker
 Python implementation of Hanhul (Korean Language) Spell Checker
 
-## 설치법
+## Status
+[![image](https://img.shields.io/travis/jha929/py-hangul-checker.svg)](https://travis-ci.org/jha929/py-hangul-checker)
+[![image](https://img.shields.io/pypi/pyversions/py-hangul-checker.svg)](https://pypi.python.org/pypi/py-hangul-checker)
+
+## How to install
 ```zsh
 $ pip install py-hangul-checker
 ```
 
-## 사용법
+## How to use
 ```python
 >>> from hangul_checker import KoreanSpellChecker
 >>> sentence_to_be_checked = "간편 하게 쓰세요!"
