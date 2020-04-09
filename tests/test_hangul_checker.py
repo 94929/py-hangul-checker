@@ -16,3 +16,10 @@ class TestKoreanSpellChecker(unittest.TestCase):
         sentence_out = self.korean_spell_checker.check_spelling(sentence_in)
         self.assertEqual(sentence_out, u'부담 갖지 말고 드세요!')
 
+    def test_check_sentence_len(self):
+        sentence_in = u'가' * 501
+        self.assertRaises(
+            Exception,
+            lambda: self.korean_spell_checker.check_spelling(sentence_in)
+        )
+
