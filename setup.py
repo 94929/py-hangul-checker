@@ -30,6 +30,7 @@ setup(
     install_requires=get_requirements(),
     url="https://github.com/jha929/py-hangul-checker",
     packages=find_packages(),
+    test_suite="tests",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
